@@ -30,7 +30,7 @@ SECRET_KEY = '$nxc2wt1ijtkubv73-7((4od#+zk9x+!h95v69!tfqxm_wp%ys'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '73.32.41.230', 'findahouse.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'findahouse.herokuapp.com']
 
 
 # Application definition
@@ -86,7 +86,16 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'btredb',
+        'USER': 'postgres',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
