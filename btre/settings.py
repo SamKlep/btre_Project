@@ -26,7 +26,7 @@ SECRET_KEY = '$nxc2wt1ijtkubv73-7((4od#+zk9x+!h95v69!tfqxm_wp%ys'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'findahouse.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '73.32.41.230', 'findahouse.herokuapp.com']
 
 
 # Application definition
