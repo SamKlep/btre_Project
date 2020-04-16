@@ -16,10 +16,6 @@ import dj_database_url
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# This is new:
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -30,7 +26,7 @@ SECRET_KEY = '$nxc2wt1ijtkubv73-7((4od#+zk9x+!h95v69!tfqxm_wp%ys'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'findahouse.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '73.32.41.230', 'findahouse.herokuapp.com']
 
 
 # Application definition
@@ -96,7 +92,6 @@ DATABASES = {
         'PORT': '',
     }
 }
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 
 # Password validation
@@ -137,7 +132,6 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'btre/static')
 ]
@@ -154,21 +148,8 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['console'],
-             'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
-        },
-    },
-}
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 try:
     from .local_settings import *
