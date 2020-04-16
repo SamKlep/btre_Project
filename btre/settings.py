@@ -28,9 +28,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1', 'findahouse.herokuapp.com']
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
-EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # Application definition
 
@@ -47,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'whitenoise.runserver_nostatic',
     
 ]
 
@@ -64,7 +60,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'btre.urls'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 TEMPLATES = [
     {
@@ -91,16 +86,13 @@ WSGI_APPLICATION = 'btre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'btredb',
+        'NAME': 'btre_prod',
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
-
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 
