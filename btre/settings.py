@@ -59,6 +59,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'btre.urls'
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 TEMPLATES = [
     {
