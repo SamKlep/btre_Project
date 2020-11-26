@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import django_heroku
 from django.contrib.messages import constants as messages
 import os
+import dj_database_url
 import psycopg2
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '$nxc2wt1ijtkubv73-7((4od#+zk9x+!h95v69!tfqxm_wp%ys'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'django-house.herokuapp.com']
 
