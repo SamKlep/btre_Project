@@ -146,10 +146,6 @@ MESSAGE_TAGS = {
     messages.ERROR: 'danger'
 }
 
-try:
-    from .local_settings import *
-except ImportError:
-    pass
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
