@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "venv/bin/python",
+    "python.pythonPath": "/Users/samuelklepper/Projects/webdev/btre_Project/venv/bin/python3.9",
     "git.ignoreLimitWarning": true
 }
